@@ -477,6 +477,13 @@ public class OrderingTest extends TestCase {
       fail();
     } catch (NullPointerException expected) {
     }
+
+    ImmutableList<Composite<String>> composites = ImmutableList.of(new Composite<>("a", 4),
+        new Composite<>("b", 1), new Composite<String>("c", 0){});
+    composites = Ordering.natural().immutableSortedCopy(composites);
+    assertEquals("c", composites.get(0).value);
+    assertEquals("b", composites.get(1).value);
+    assertEquals("a", composites.get(2).value);
   }
 
   public void testIsOrdered() {

@@ -872,7 +872,7 @@ public abstract class Ordering<T> implements Comparator<T> {
    */
   // TODO(kevinb): rerun benchmarks including new options
   @CanIgnoreReturnValue // TODO(kak): Consider removing this before internal migration
-  public <E extends T> ImmutableList<E> immutableSortedCopy(Iterable<E> elements) {
+  public <E extends T> ImmutableList<E> immutableSortedCopy(Iterable<? extends E> elements) {
     return ImmutableList.sortedCopyOf(this, elements);
   }
 

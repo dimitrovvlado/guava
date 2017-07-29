@@ -41,7 +41,7 @@ final class AllEqualOrdering extends Ordering<Object> implements Serializable {
   }
 
   @Override
-  public <E> ImmutableList<E> immutableSortedCopy(Iterable<E> iterable) {
+  public <E> ImmutableList<E> immutableSortedCopy(Iterable<? extends E> iterable) {
     return ImmutableList.copyOf(iterable);
   }
 
